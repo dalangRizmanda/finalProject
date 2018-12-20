@@ -14,7 +14,7 @@ public class connection {
     public static Connection getConn(){
         if(conn == null){
             try {
-                String url = "jdbc:mysql://localhost/servis";
+                String url = "jdbc:mysql://localhost:100/servis";
                 String user = "root";
                 String pass = "";
                 DriverManager.registerDriver(new com.mysql.jdbc.Driver());
