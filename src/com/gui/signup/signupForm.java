@@ -37,11 +37,11 @@ public class signupForm extends javax.swing.JFrame {
         fnameField = new javax.swing.JTextField();
         lnameField = new javax.swing.JTextField();
         usernameField = new javax.swing.JTextField();
-        passwordField = new javax.swing.JTextField();
         emailField = new javax.swing.JTextField();
         noHpField = new javax.swing.JTextField();
         submitButton = new javax.swing.JButton();
         resetButton = new javax.swing.JButton();
+        passwordField = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,6 +66,12 @@ public class signupForm extends javax.swing.JFrame {
         resetButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         resetButton.setText("Reset");
 
+        passwordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordFieldActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -89,14 +95,13 @@ public class signupForm extends javax.swing.JFrame {
                                 .addComponent(resetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(noHpField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(usernameField, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                                        .addComponent(lnameField)
-                                        .addComponent(fnameField)
-                                        .addComponent(passwordField)
-                                        .addComponent(emailField)))))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(noHpField, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                    .addComponent(usernameField, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                    .addComponent(lnameField)
+                                    .addComponent(fnameField)
+                                    .addComponent(emailField)
+                                    .addComponent(passwordField))))))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -137,6 +142,10 @@ public class signupForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,7 +192,7 @@ public class signupForm extends javax.swing.JFrame {
     private javax.swing.JTextField noHpField;
     private javax.swing.JLabel nomorHp;
     private javax.swing.JLabel password;
-    private javax.swing.JTextField passwordField;
+    private javax.swing.JPasswordField passwordField;
     private javax.swing.JButton resetButton;
     private javax.swing.JButton submitButton;
     private javax.swing.JLabel title;
