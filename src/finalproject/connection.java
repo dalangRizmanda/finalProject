@@ -4,25 +4,25 @@
  * and open the template in the editor.
  */
 package finalproject;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Irham Rizady
  */
 public class connection {
-    private static Connection conn;
-    public static Connection getConn(){
-        if(conn == null){
-            try {
-                String url = "jdbc:mysql://localhost:100/servis";
-                String user = "root";
-                String pass = "";
-                DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-                conn = DriverManager.getConnection(url, user, pass);
-            } catch (Exception e) {
-                System.out.println("Gagal Koneksi Database");
-            }
+    public Connection conn;
+    public Statement stm;
+    
+    public void config(){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost/servis", "root","");
+            stm = conn.createStatement();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Koneksi Gagal "+e.getMessage());
         }
-        return conn;
     }
 }

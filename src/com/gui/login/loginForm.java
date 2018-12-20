@@ -5,6 +5,11 @@
  */
 package com.gui.login;
 import com.gui.signup.signupForm;
+import finalproject.connection;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Irham Rizady
@@ -13,8 +18,16 @@ public class loginForm extends javax.swing.JFrame {
     /**
      * Creates new form loginForm
      */
+    Connection conn;
+    Statement stm;
+    ResultSet rs;
+    String sql;
     public loginForm() {
         initComponents();
+        connection cn = new connection();
+        cn.config();
+        conn = cn.conn;
+        stm = cn.stm;
     }
 
     /**
@@ -105,6 +118,19 @@ public class loginForm extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
+        try {
+            sql = "SELECT * FROM users WHERE username='"+usernameField.getText()+"' AND password='"+passwordField.getText()+"'";
+            rs = stm.executeQuery(sql);
+            if(rs.next()){
+                if(usernameField.getText().equals(rs.getString("username")) && passwordField.getText().equals(rs.getString("password"))){
+                    JOptionPane.showMessageDialog(null, "Berhasil Login");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Username atau Password Salah!");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void signupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupButtonActionPerformed
