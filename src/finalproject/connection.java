@@ -6,6 +6,7 @@
 package finalproject;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 /**
@@ -13,6 +14,10 @@ import javax.swing.JOptionPane;
  * @author Irham Rizady
  */
 public class connection {
+
+    public static PreparedStatement prepareStatement(String insert) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     public Connection conn;
     public Statement stm;
     
