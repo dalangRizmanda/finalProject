@@ -69,9 +69,4 @@ public class servis {
     public void setNo_hp(int no_hp) {
         this.no_hp = no_hp;
     }
-
-    public void getId(int aInt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

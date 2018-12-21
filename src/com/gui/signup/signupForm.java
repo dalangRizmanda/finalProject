@@ -5,6 +5,14 @@
  */
 package com.gui.signup;
 
+import com.gui.login.loginForm;
+import finalproject.connection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Irham Rizady
@@ -14,8 +22,17 @@ public class signupForm extends javax.swing.JFrame {
     /**
      * Creates new form signupForm
      */
+    Connection conn;
+    Statement stm;
+    ResultSet rs;
+    String sql;
+    PreparedStatement ps;
     public signupForm() {
         initComponents();
+        connection cn = new connection();
+        cn.config();
+        conn = cn.conn;
+        stm = cn.stm;
     }
 
     /**
@@ -62,6 +79,11 @@ public class signupForm extends javax.swing.JFrame {
 
         submitButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         submitButton.setText("Submit");
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButtonActionPerformed(evt);
+            }
+        });
 
         resetButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         resetButton.setText("Reset");
@@ -146,6 +168,27 @@ public class signupForm extends javax.swing.JFrame {
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordFieldActionPerformed
+
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        // TODO add your handling code here:
+        try {
+            sql = "INSERT INTO users (fname, lname, username, password, email, no_hp) VALUES (?, ?, ?, ?, ?, ?)";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, fnameField.getText());
+            ps.setString(2, lnameField.getText());
+            ps.setString(3, usernameField.getText());
+            ps.setString(4, passwordField.getText());
+            ps.setString(5, emailField.getText());
+            ps.setString(6, noHpField.getText());
+            
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Success!");
+            new loginForm().setVisible(true);
+            this.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_submitButtonActionPerformed
 
     /**
      * @param args the command line arguments

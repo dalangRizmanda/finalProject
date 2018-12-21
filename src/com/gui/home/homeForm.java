@@ -39,6 +39,11 @@ public class homeForm extends javax.swing.JFrame {
 
         servisButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         servisButton.setText("Servis");
+        servisButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                servisButtonActionPerformed(evt);
+            }
+        });
 
         dataButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         dataButton.setText("Data Servis");
@@ -89,6 +94,10 @@ public class homeForm extends javax.swing.JFrame {
     private void dataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_dataButtonActionPerformed
+
+    private void servisButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_servisButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_servisButtonActionPerformed
 
     /**
      * @param args the command line arguments

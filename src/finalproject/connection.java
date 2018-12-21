@@ -6,7 +6,6 @@
 package finalproject;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 /**
@@ -14,10 +13,6 @@ import javax.swing.JOptionPane;
  * @author Irham Rizady
  */
 public class connection {
-
-    public static PreparedStatement prepareStatement(String insert) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     public Connection conn;
     public Statement stm;
     
@@ -26,6 +21,7 @@ public class connection {
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection("jdbc:mysql://localhost/servis", "root","");
             stm = conn.createStatement();
+            System.out.println("Koneksi Berhasil");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Koneksi Gagal "+e.getMessage());
         }

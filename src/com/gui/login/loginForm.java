@@ -4,12 +4,17 @@
  * and open the template in the editor.
  */
 package com.gui.login;
+import com.gui.home.homeForm;
 import com.gui.signup.signupForm;
 import finalproject.connection;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 /**
  *
  * @author Irham Rizady
@@ -29,7 +34,6 @@ public class loginForm extends javax.swing.JFrame {
         conn = cn.conn;
         stm = cn.stm;
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -124,13 +128,16 @@ public class loginForm extends javax.swing.JFrame {
             if(rs.next()){
                 if(usernameField.getText().equals(rs.getString("username")) && passwordField.getText().equals(rs.getString("password"))){
                     JOptionPane.showMessageDialog(null, "Berhasil Login");
+                    homeForm hm = new homeForm();
+                    hm.setVisible(true);
+                    this.dispose();
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "Username atau Password Salah!");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
-        }
+}
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void signupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupButtonActionPerformed
